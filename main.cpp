@@ -135,14 +135,18 @@ void studentDelete()
                 names[j] = names[j + 1];
                 marks[j] = marks[j + 1];
                 roll_no[j] = roll_no[j + 1];
+                
             }
-        }
-        else
-        {
-            continue;
+            totalStudent --;
+            break;
         }
     }
-    totalStudent --;
+    if (i == totalStudent)
+    {
+        cout << "Student not found!\n";
+        return;
+    }
+    
     cout << "The Student info has been deleted "<<endl;
     cout << "--------------------------" << endl;
 
@@ -175,7 +179,7 @@ void avgMarks()
 void Topper()
 {
     cout << "===== Class Topper ====="<<endl;
-    float high = 0;
+    float high = marks[0];
     int i,roll;
     string name;
     if(totalStudent==0)
